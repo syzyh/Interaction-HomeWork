@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/materialize.min.css">
+     <link rel="stylesheet" href="css/HCIyidong.css">
+     <link rel="stylesheet" type="text/css" href="fonts/iconfont/material-icons.css">
+    <meta charset="utf-8">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/echarts.js"></script>
+    <title>HCI项目查询</title>
+</head>
+<body>
+     <ul class="collapsible z-depth-0" data-collapsible="accordion">
+      <li>
+       <div class="collapsible-header"><span class="badge">4 项</span><i class="material-icons" style="margin-right: 0">keyboard_arrow_right</i>Apple-设置</div>
+       <div class="collapsible-body"><div class = "hcicharts" style="width: 400px;height:300px;"></div></div>
+     </li>
+     <li>
+       <div class="collapsible-header"><span class="badge">1 项</span><i class="material-icons" style="margin-right: 0">keyboard_arrow_right</i>Apple-iTunes</div>
+       <div class="collapsible-body"><div class = "hcicharts" style="width: 400px;height:300px;"></div></div>
+     </li>
+     <li>
+       <div class="collapsible-header"><span class="badge">5 项</span><i class="material-icons" style="margin-right: 0">keyboard_arrow_right</i>Apple-iMessage</div>
+       <div class="collapsible-body"><div class = "hcicharts" style="width: 400px;height:300px;"></div></div>
+     </li>
+     <li>
+       <div class="collapsible-header"><span class="badge">2 项</span><i class="material-icons" style="margin-right: 0">keyboard_arrow_right</i>园林-规划</div>
+       <div class="collapsible-body"><div class = "hcicharts" style="width: 400px;height:300px;"></div></div>
+     </li>
+     <li>
+       <div class="collapsible-header"><span class="badge">3 项</span><i class="material-icons" style="margin-right: 0">keyboard_arrow_right</i>园林-三维模型</div>
+       <div class="collapsible-body"><p>卡诺问卷的设计与发放</p></div>
+     </li>
+     <li>
+       <div class="collapsible-header"><span class="badge">1 项</span><i class="material-icons" style="margin-right: 0">keyboard_arrow_right</i>《概念模型》翻译</div>
+       <div class="collapsible-body"><p>卡诺问卷的设计与发放</p></div>
+     </li>
+   </ul>
+
+  <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var hcicharts = document.getElementsByClassName('hcicharts');
+        console.log(hcicharts);
+        
+        var option1 = {
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                top: 80,
+                bottom: 30
+            },
+            xAxis: {
+                type : 'value',
+                position: 'top',
+                splitLine: {lineStyle:{type:'dashed'}},
+            },
+            yAxis: {
+                type : 'category',
+                axisLine: {show: false},
+                axisLabel: {show: false},
+                axisTick: {show: false},
+                splitLine: {show: false},
+                data : ['卡诺问卷的设计与发放', '访谈提纲的设计与实施', '卡诺问卷结果分析', '访谈结构的总结']
+            },
+            series : [
+                {
+                    name:'生活费',
+                    type:'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: '{b}'
+                        }
+                    },
+                    data:[
+                        100,90,60,40
+                    ]
+                }
+            ]
+        };
+
+        for(var i = 0; i < hcicharts.length; i++) {
+          var myChart = echarts.init(hcicharts[i]);
+          myChart.setOption(option1);
+        };
+        $('.collapsible-header').click(function(){
+          for(var i = 0; i < hcicharts.length; i++) {
+            var myChart = echarts.init(hcicharts[i]);
+            myChart.setOption(option1);
+          };
+        });
+    </script>
+
+</body>
+</html>
