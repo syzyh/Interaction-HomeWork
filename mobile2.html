@@ -11,7 +11,11 @@
     <title>HCI项目查询</title>
 </head>
 <body>
-  <h5 style="margin-left: 24px">项目管理</h5>
+
+  <div class="row" style="margin-bottom: 0px">
+      <div class="col s11"><h5 style="margin-left: 24px;display: inline-block">项目管理</h5></div>
+      <div id = "change" class="col s1" style="margin-top: 10px"><i class="material-icons" style="display: inline-block">equalizer</i></div>
+    </div>
      <ul class="collapsible z-depth-0" data-collapsible="accordion">
       <li>
        <div class="collapsible-header"><span class="badge">4 项</span><i class="material-icons" style="margin-right: 0">keyboard_arrow_right</i>Apple-设置</div>
@@ -43,6 +47,50 @@
         // 基于准备好的dom，初始化echarts实例
         var hcicharts = document.getElementsByClassName('hcicharts');
         console.log(hcicharts);
+        var option2 = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['问卷设计','访谈设计','数据分析','访谈总结','搜索引擎']
+    },
+    series: [
+        {
+            name:'Apple-设置',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:100, name:'问卷设计'},
+                {value:90, name:'访谈设计'},
+                {value:60, name:'数据分析'},
+                {value:40, name:'访谈总结'}
+            ]
+        }
+    ]
+}
+
         
         var option1 = {
             tooltip : {
@@ -85,15 +133,26 @@
                 }
             ]
         };
-
+        var option = option1
         for(var i = 0; i < hcicharts.length; i++) {
           var myChart = echarts.init(hcicharts[i]);
-          myChart.setOption(option1);
+          myChart.setOption(option);
         };
         $('.collapsible-header').click(function(){
           for(var i = 0; i < hcicharts.length; i++) {
             var myChart = echarts.init(hcicharts[i]);
-            myChart.setOption(option1);
+            myChart.setOption(option);
+          };
+        });
+        $('#change').click(function() {
+          if(option == option1) {
+            option = option2
+          } else {
+            option = option1
+          }
+          for(var i = 0; i < hcicharts.length; i++) {
+            var myChart = echarts.init(hcicharts[i]);
+            myChart.setOption(option);
           };
         });
     </script>
