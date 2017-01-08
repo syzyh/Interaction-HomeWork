@@ -1,0 +1,59 @@
+.biaoti {
+          margin-left: 25px;
+          margin-right: 50px;
+        }
+.biaoge {
+          border-style: solid;
+          border-width: 1px;
+          border-color: gray;   
+        }
+.wenzi{
+          font-weight: bolder;
+        }
+.xuankuang
+        {
+          padding-left: 25px;  
+        }
+.youduiqi{
+            float:right;
+        }
+.juzhong
+        {
+          text-align:center;
+    
+         }
+.beijing
+        {
+          background-color: #f7f7f7;
+          padding-left:40px;
+          padding-right:40px;
+          padding-top:10px;
+        }
+.baisebeijing
+        {
+            padding-left:40px;
+            padding-right: 40px;
+            padding-top:10px;
+        }
+.biankuang
+        {
+          border=1;
+          border-color:gray;
+        }
+.xiangmutupian
+        {
+          background-color:#e3e3e3;
+          margin-left:20px;
+          margin-right:20px;
+          margin-bottom:15px;
+        }
+.xiangmumingcheng
+        {
+         margin:0 auto;
+         margin-top:10px;
+         margin-bottom:10px;
+         }
+.anniu-xiangmu
+        {
+         margin: 5px;     
+        }
