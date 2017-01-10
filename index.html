@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/nouislider.min.css">
     <link rel="stylesheet" href="css/materialize.min.css">
-    <link rel="stylesheet" href="css/hci.css">
     <meta charset="utf-8">
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
     <title>HCI&nbsp;项目管理</title>
 </head>
 
 <body>
+
+<form>
+        <div id="test6"></div>
+    </form>
+
   <div class="navbar-fixed">
    <nav>
         <div class="nav-wrapper blue darken-1">
@@ -44,6 +50,11 @@
                             <label for="test1">iMessage走查分析</label>
                             </p>
                         </form></td>
+                        <td>  <form action="#">
+    <p class="range-field">
+      <input type="range" id="test5" min="0" max="100" />
+    </p>
+  </form></td>
                    </tr>
                     <tr><td><form action="#">
                             <p>
@@ -243,7 +254,19 @@
       </div>
     </div>
  </footer>
-         
+      <script>
+        var slider = document.getElementById('test6');
+  noUiSlider.create(slider, {
+   start: [20, 80],
+   connect: true,
+   step: 1,
+   range: {
+     'min': 0,
+     'max': 100
+   },
+   
+  });
+      </script>   
                
 </body>
 </html>
